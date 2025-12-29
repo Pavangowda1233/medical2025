@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MediCare – Your Health Partner</title>
+
+  <style>
+    /* ===== RESET ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+    }
+
+    header {
+      background: linear-gradient(135deg, #4776e6, #8e54e9);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 8%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo img {
+      width: 130px;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    /* ===== NAVBAR ===== */
+    #navbar ul.menu {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      list-style: none;
+    }
+
+    #navbar ul.menu li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    #navbar ul.menu li a:hover {
+      color: #00c4a7;
+    }
+
+    /* ===== DROPDOWN ===== */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background:blue;
+      list-style: none;
+      padding: 8px 0;
+      border-radius: 8px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      min-width: 160px;
+      z-index: 999;
+    }
+
+    .dropdown-menu li a {
+      display: block;
+      padding: 10px 18px;
+      color: #0f172a;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .dropdown-menu li a:hover {
+      background: #3b82f6;
+      color: blue;
+    }
+
+    /* Desktop hover dropdown */
+    @media (hover: hover) {
+      .dropdown:hover .dropdown-menu {
+        display: block;
+      }
+    }
+
+    /* ===== HAMBURGER ===== */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 28px;
+      height: 20px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 100%;
+      height: 3px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all 0.4s ease;
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: rotate(45deg) translateY(8px);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: rotate(-45deg) translateY(-8px);
+    }
+
+    /* ===== MOBILE MENU ===== */
+    @media (max-width: 900px) {
+      #navbar ul.menu {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        background: linear-gradient(135deg, #176B87, #2515b8);
+        padding: 20px 0;
+        transform: translateY(-200%);
+        transition: transform 0.4s ease;
+        z-index: 999;
+        max-height: 100vh;
+        overflow-y: auto;
+      }
+
+      #navbar ul.menu.active {
+        transform: translateY(0);
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      #navbar ul.menu li {
+        width: 100%;
+        text-align: center;
+      }
+
+      #navbar ul.menu li a {
+        display: block;
+        padding: 14px;
+        color: #fff;
+        font-size: 1rem;
+      }
+
+      #navbar ul.menu li a:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      /* ✅ MOBILE DROPDOWN FIX */
+      .dropdown.open .dropdown-menu {
+        display: block;
+        position: relative;
+        top: 0;
+        background: rgba(255, 255, 255, 0.15);
+        box-shadow: none;
+        border-radius: 6px;
+        width: 100%;
+        padding: 0;
+        text-align: center;
+        margin-top: 4px;
+      }
+
+      .dropdown-menu li a {
+        color: #e0f2fe;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .dropdown-menu li:last-child a {
+        border-bottom: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="logo">
+      <img src="Screenshot (7) (1).webp" alt="MediCare Logo">
+    </div>
+
+    <!-- ===== HAMBURGER ===== -->
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- ===== NAVIGATION ===== -->
+     <nav id="navbar">
+  <ul class="menu">
+    <li class="dropdown">
+      <a href="">Home ▾</a>
+      <ul class="dropdown-menu">
+        <li><a href="home2.html">Home2</a></li>
+        <li><a href="index.html">Home1</a></li>
+      </ul>
+    </li>
+        <li><a href="Buy Products.html">Baby Products</a></li>
+        <li><a href="buy insurance.html">Buy Insurance</a></li>
+        <li><a href="diagontics.html">Diagnostics</a></li>
+        <li><a href="service.html">Our Services</a></li>
+        <li><a href="contact1.html">Contact</a></li>
+        <li><a href="signup1.html">Signup</a></li>
+      
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== JS ===== -->
+  <script>
+    // Hamburger toggle
+    const hamburger = document.getElementById("hamburger");
+    const navbarMenu = document.querySelector("#navbar ul.menu");
+
+    hamburger.addEventListener("click", () => {
+      navbarMenu.classList.toggle("active");
+      hamburger.classList.toggle("open");
+    });
+
+    // Dropdown toggle (mobile)
+    const dropdownLinks = document.querySelectorAll(".dropdown > a");
+
+    dropdownLinks.forEach(link => {
+      link.addEventListener("click", (e) => {
+        if (window.innerWidth <= 900) {
+          e.preventDefault();
+          const parent = link.parentElement;
+          const isOpen = parent.classList.contains("open");
+
+          // Close other dropdowns
+          document.querySelectorAll(".dropdown.open").forEach(drop => {
+            if (drop !== parent) drop.classList.remove("open");
+          });
+
+          // Toggle current dropdown
+          parent.classList.toggle("open", !isOpen);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+
+    
+<style>
+    /* ===== CONTAINER ===== */
+    .error-container {
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      padding: 20px;
+      animation: fadeIn 1.2s ease;
+    }
+
+    /* ===== 404 NUMBER ===== */
+    .error-code {
+      font-size: 8rem;
+      font-weight: 800;
+      letter-spacing: 10px;
+      position: relative;
+      display: inline-block;
+      color: #ffffff;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    /* ===== TEXT ===== */
+    .error-message {
+      font-size: 1.6rem;
+      margin-top: 20px;
+      color: #e2e8f0;
+    }
+
+    .error-subtext {
+      font-size: 1rem;
+      color: #b0d0da;
+      margin: 10px 0 30px;
+    }
+
+    /* ===== BUTTON ===== */
+    .back-btn {
+      display: inline-block;
+      background: #ffffff;
+      color: #176B87;
+      padding: 12px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.4s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .back-btn:hover {
+      background: #00c4a7;
+      color: #ffffff;
+      transform: translateY(-4px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    }
+
+    /* ===== FLOATING ICON ANIMATION ===== */
+    .floating-icons {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .icon {
+      position: absolute;
+      font-size: 2.2rem;
+      opacity: 0.15;
+      animation: float 10s linear infinite;
+    }
+
+    .icon:nth-child(1) {
+      top: 10%;
+      left: 20%;
+      animation-duration: 12s;
+    }
+
+    .icon:nth-child(2) {
+      top: 30%;
+      left: 70%;
+      animation-duration: 10s;
+    }
+
+    .icon:nth-child(3) {
+      top: 70%;
+      left: 50%;
+      animation-duration: 14s;
+    }
+
+    .icon:nth-child(4) {
+      top: 50%;
+      left: 10%;
+      animation-duration: 11s;
+    }
+
+    .icon:nth-child(5) {
+      top: 80%;
+      left: 80%;
+      animation-duration: 13s;
+    }
+
+    /* ===== KEYFRAMES ===== */
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.15;
+      }
+      50% {
+        transform: translateY(-20px) rotate(10deg);
+        opacity: 0.3;
+      }
+      100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.15;
+      }
+    }
+
+    @keyframes glow {
+      0% {
+        text-shadow: 0 0 10px #00e0ff, 0 0 20px #00c4a7, 0 0 30px #ffffff;
+      }
+      100% {
+        text-shadow: 0 0 20px #ffffff, 0 0 40px #00e0ff, 0 0 60px #00c4a7;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .error-code {
+        font-size: 5rem;
+        letter-spacing: 5px;
+      }
+      .error-message {
+        font-size: 1.3rem;
+      }
+      .back-btn {
+        padding: 10px 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Floating Medical Icons -->
+  <div class="floating-icons">
+    <div class="icon">💊</div>
+    <div class="icon">🩺</div>
+    <div class="icon">🧬</div>
+    <div class="icon">❤️</div>
+    <div class="icon">💉</div>
+  </div>
+
+  <!-- Main 404 Content -->
+  <div class="error-container">
+    <div class="error-code">404</div>
+    <div class="error-message">Oops! Page Not Found</div>
+    <div class="error-subtext">
+      The page you are looking for might have been moved, renamed, or doesn’t exist.
+    </div>
+    <a href="home2.html" class="back-btn">🏠 Back to Home</a>
+  </div>
+
+  <script>
+    // Optional: subtle glow animation pulse for icons
+    const icons = document.querySelectorAll(".icon");
+    setInterval(() => {
+      icons.forEach(icon => {
+        icon.style.opacity = Math.random() * 0.3 + 0.15;
+        icon.style.transform = `translateY(${Math.random() * 10 - 5}px) rotate(${Math.random() * 10 - 5}deg)`;
+      });
+    }, 3000);
+  </script>
+</body>
+</html>
+
+    
